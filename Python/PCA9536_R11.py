@@ -29,4 +29,4 @@ data = bus.read_byte_data(0x41, 0x01)
 if (data & 0x01) :
 	print "Pin 1 : HIGH"
 else :
-	print "Pin 2 : LOW"
+	print "Pin 1 : LOW"
