@@ -66,7 +66,7 @@ void loop()
   }
   else
   {
-    Serial.println("Pin-1 : ", "LOW");
+    Particle.publish("Pin-1 : ", "LOW");
   }
   delay(500);
 }
