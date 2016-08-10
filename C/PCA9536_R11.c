@@ -29,31 +29,27 @@ void main()
 	config[0] = 0x03;
 	config[1] = 0x00;
 	write(file, config, 2);
-	// Select output port register(0x01)
-	// Set Pin-1 HIGH(0x01)
+	sleep(1);
+
+	// Select data register(0x01)
+	// Set pin-1 as HIGH(0x01)
+	char config[2] = {0};
 	config[0] = 0x01;
 	config[1] = 0x01;
 	write(file, config, 2);
 	sleep(1);
-
-	// Read 1 byte from  register(0x01)
-	char reg[1] = {0x01};
-	write(file, reg, 1);
-	char data[1] = {0};
-	if(read(file, data, 1) != 1)
-	{
-		printf("Erorr : Input/output Erorr \n");
-	}
-	else
-	{
-		// Output to screen
-		if((int)data & 0x01)
-		{
-			printf("Pin 1 : HIGH");
-		}
-		else
-		{
-			printf("Pin 1 : LOW");
-		}
-	}
+	
+	// Output to screen
+	printf("Pin 1 state is: HIGH");
+	
+	// Select data register(0x01)
+	// Set pin-1 as LOW(0x00)
+	char config[2] = {0};
+	config[0] = 0x01;
+	config[1] = 0x00;
+	write(file, config, 2);
+	sleep(1);
+	
+	// Output to screen
+	printf("Pin 1 state is: LOW");
 }
