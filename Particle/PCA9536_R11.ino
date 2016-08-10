@@ -56,6 +56,6 @@ void loop()
   delay(1000);
   
   // Output data to dashboard
-  Particle.publish("Pin-1 state is : ", "HIGH");
+  Particle.publish("Pin-1 state is : ", "LOW");
   delay(500);
 }
