@@ -31,7 +31,7 @@ void main()
 	write(file, config, 2);
 	sleep(1);
 
-	// Select data register(0x01)
+	// Select output port register(0x01)
 	// Set pin-1 as HIGH(0x01)
 	char config[2] = {0};
 	config[0] = 0x01;
@@ -42,7 +42,7 @@ void main()
 	// Output to screen
 	printf("Pin 1 state is: HIGH");
 	
-	// Select data register(0x01)
+	// Select output port register(0x01)
 	// Set pin-1 as LOW(0x00)
 	char config[2] = {0};
 	config[0] = 0x01;
