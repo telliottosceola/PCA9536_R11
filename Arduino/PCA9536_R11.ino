@@ -34,18 +34,25 @@ void loop()
   Wire.beginTransmission(Addr);
   // Select output port register
   Wire.write(0x01);
+  // Set pin-1 as HIGH
   Wire.write(0x01);
   // Stop I2C transmission
   Wire.endTransmission();
-  Serial.println("Pin-1 state is : HIGH");
   delay(1000);
   
+  // Output data to serial monitor
+  Serial.println("Pin-1 state is : HIGH");
+   
   Wire.beginTransmission(Addr);
   // Select output port register
   Wire.write(0x01);
+  // Set pin-1 as LOW
   Wire.write(0x00);
   // Stop I2C transmission
   Wire.endTransmission();
-  Serial.println("Pin-1 state is : LOW");
   delay(1000);
+  
+  // Output data to serial monitor
+  Serial.println("Pin-1 state is : LOW");
+  delay(500);
 }
