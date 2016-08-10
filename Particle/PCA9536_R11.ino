@@ -15,7 +15,6 @@ void setup()
 {
   // Set variable
   Particle.variable("i2cdevice", "PCA9536_R11");
-  Particle.variable("output", output);
   
   // Initialise I2C communication
   Wire.begin();
