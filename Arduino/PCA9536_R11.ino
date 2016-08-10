@@ -32,7 +32,7 @@ void loop()
 
   // Start I2C transmission
   Wire.beginTransmission(Addr);
-  // Select data register
+  // Select output port register
   Wire.write(0x01);
   Wire.write(0x01);
   // Stop I2C transmission
@@ -41,7 +41,7 @@ void loop()
   delay(1000);
   
   Wire.beginTransmission(Addr);
-  // Select data register
+  // Select output port register
   Wire.write(0x01);
   Wire.write(0x00);
   // Stop I2C transmission
