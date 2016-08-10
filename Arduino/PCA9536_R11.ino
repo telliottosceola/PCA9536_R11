@@ -15,7 +15,7 @@ void setup()
   Wire.begin();
   // Initialise Serial Communication, set baud rate = 9600
   Serial.begin(9600);
-
+  
   // Start I2C transmission
   Wire.beginTransmission(Addr);
   // Select configuration register
@@ -24,45 +24,28 @@ void setup()
   Wire.write(0x00);
   // Stop I2C transmission
   Wire.endTransmission();
-
-  // Start I2C transmission
-  Wire.beginTransmission(Addr);
-  // Select output port register
-  Wire.write(0x01);
-  // Set Pin-1 HIGH
-  Wire.write(0x01);
-  // Stop I2C transmission
-  Wire.endTransmission();
   delay(300);
 }
 
 void loop()
 {
-  unsigned int output;
 
   // Start I2C transmission
   Wire.beginTransmission(Addr);
   // Select data register
   Wire.write(0x01);
+  Wire.write(0x01);
   // Stop I2C transmission
   Wire.endTransmission();
-
-  // Request 1 byte of data
-  Wire.requestFrom(Addr, 1);
-
-  // Read 1 byte of data from address 0x01(01)
-  if (Wire.available() == 1)
-  {
-    output = Wire.read();
-  }
-
-  if ((output & 0x01)
-  {
-    Serial.println("Pin-1 : HIGH");
-  }
-  else
-  {
-    Serial.println("Pin-1 : LOW");
-  }
-  delay(500);
+  Serial.println("Pin-1 state is : HIGH");
+  delay(1000);
+  
+  Wire.beginTransmission(Addr);
+  // Select data register
+  Wire.write(0x01);
+  Wire.write(0x00);
+  // Stop I2C transmission
+  Wire.endTransmission();
+  Serial.println("Pin-1 state is : LOW");
+  delay(1000);
 }
