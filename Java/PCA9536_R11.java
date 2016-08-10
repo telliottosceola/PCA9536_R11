@@ -21,21 +21,18 @@ public class PCA9536_R11
 		// Select configuration register
 		// Set all pins as OUTPUT
 		device.write(0x03, (byte)0x00);
-		// Select output port register
-		// Set Pin-1 HIGH
-		device.write(0x01, (byte)0x01);
-		Thread.sleep(100);
+		Thread.sleep(500);
 
-		// Read 1 byte of data from address 0x01(01)
-		// Output to screen
-		byte output = (byte)device.read(0x01);
-		if((output & 0x01) != 0)
-		{
-			System.out.printf("Pin-1 : HIGH %n");
-		}
-		else
-		{
-			System.out.printf("Pin-1 : LOW %n");
-		}
+		// Select output port register
+		// Set pin-1 as HIGH
+		device.write(0x01, (byte)0x01);
+		Thread.sleep(500);
+		System.out.printf("Pin-1 state is: HIGH %n");
+		
+		// Select output port register
+		// Set pin-1 as LOW
+		device.write(0x01, (byte)0x00);
+		Thread.sleep(500);
+		System.out.printf("Pin-1 state is: LOW %n");
 	}
 }
