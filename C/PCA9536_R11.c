@@ -40,7 +40,7 @@ void main()
 	sleep(1);
 	
 	// Output to screen
-	printf("Pin 1 state is: HIGH");
+	printf("Pin-1 state is : HIGH");
 	
 	// Select output port register(0x01)
 	// Set pin-1 as LOW(0x00)
@@ -51,5 +51,5 @@ void main()
 	sleep(1);
 	
 	// Output to screen
-	printf("Pin 1 state is: LOW");
+	printf("Pin-1 state is : LOW");
 }
