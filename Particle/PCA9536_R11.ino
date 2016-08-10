@@ -10,7 +10,6 @@
 // PCA9536_R11 I2C address is 0x41(65)
 #define Addr 0x41
 
-unsigned int output;
 void setup()
 {
   // Set variable
