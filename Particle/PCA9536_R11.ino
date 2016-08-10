@@ -43,8 +43,10 @@ void loop()
   Wire.write(0x01);
   // Stop I2C transmission
   Wire.endTransmission();
-  Particle.publish("Pin-1 state is : ", "HIGH");
   delay(1000);
+  
+  // Output data to dashboard
+  Particle.publish("Pin-1 state is : ", "HIGH");
   
   Wire.beginTransmission(Addr);
   // Select output port register
@@ -53,6 +55,9 @@ void loop()
   Wire.write(0x00);
   // Stop I2C transmission
   Wire.endTransmission();
-  Particle.publish("Pin-1 state is : ", "LOW");
   delay(1000);
+  
+  // Output data to dashboard
+  Particle.publish("Pin-1 state is : ", "HIGH");
+  delay(500);
 }
