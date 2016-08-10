@@ -38,7 +38,5 @@ public class PCA9536_R11
 		
 		// Output data to screen
 		System.out.printf("Pin-1 state is: LOW %n");
-		Thread.sleep(500);
-		
 	}
 }
