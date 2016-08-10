@@ -29,7 +29,6 @@ void setup()
 
 void loop()
 {
-
   // Start I2C transmission
   Wire.beginTransmission(Addr);
   // Select output port register
