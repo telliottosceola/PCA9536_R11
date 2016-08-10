@@ -23,7 +23,7 @@ bus.write_byte_data(0x41, 0x01, 0x01)
 time.sleep(1);
 
 # Output to screen
-print "Pin 1 state is: HIGH"
+print "Pin-1 state is : HIGH"
 
 # PCA9536_R11 address, 0x41(65)
 # Select output port register, 0x01(01)
@@ -32,4 +32,4 @@ bus.write_byte_data(0x41, 0x01, 0x00)
 time.sleep(1);
 
 # Output to screen
-print "Pin 1 state is: LOW"
+print "Pin-1 state is : LOW"
