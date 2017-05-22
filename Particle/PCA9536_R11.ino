@@ -16,19 +16,25 @@ void setup()
   Particle.variable("i2cdevice", "PCA9536_R11");
   
   // Initialise I2C communication
-  Wire.begin();
-  // Initialise Serial Communication, set baud rate = 9600
-  Serial.begin(9600);
-
-  // Start I2C transmission
-  Wire.beginTransmission(Addr);
-  // Select configuration register
-  Wire.write(0x03);
-  // Set all pins as OUTPUT
-  Wire.write(0x00);
-  // Stop I2C transmission
-  Wire.endTransmission();
-  delay(300);
+ -  Wire.begin();
+    // Initialise Serial Communication, set baud rate = 9600
+    Serial.begin(9600);
+ +
+ +  // Turn off all channels prior to initialization of chip so relays do not turn on after initializing channels to outputs.
+ +  Wire.beginTransmission(Addr);
+ +  Wire.write(0x01);
+ +  Wire.write(0x00);
+ +  Wire.endTransmission();
+  
+ -  // Start I2C transmission
+    Wire.beginTransmission(Addr);
+    // Select configuration register
+    Wire.write(0x03);
+    // Set all pins as OUTPUT
+    Wire.write(0x00);
+ -  // Stop I2C transmission
+    Wire.endTransmission();
+    delay(300);
 }
 
 void loop()
